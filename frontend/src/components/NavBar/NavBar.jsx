@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiFootball } from 'react-icons/bi';
 import { FaUser, FaSignInAlt } from 'react-icons/fa';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { Link, useLocation } from 'react-router-dom';
 
 const menuItems = [
   { path: '/', label: '홈' },
@@ -11,26 +12,46 @@ const menuItems = [
   { path: '/contact', label: '문의하기' },
 ];
 
+const MenuItem = ({ path, label, isActive, onClick }) => (
+  <li>
+    <Link
+      to={path}
+      onClick={onClick}
+      className={`hover:text-blue-500 transition duration-300 ${
+        isActive && 'text-blue-500 font-bold'
+      }`}
+    >
+      {label}
+    </Link>
+  </li>
+);
+
 function NavBar() {
+  const location = useLocation();
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
 
   const toggleMenu = () => setIsOpened(prev => !prev);
 
   return (
-    <nav className='fixed top-0 left-0 w-full bg-white'>
+    <nav className='fixed top-0 left-0 w-full bg-white '>
       <div className='container mx-auto flex justify-between items-center'>
-        <div className='flex items-center lg:ml-10'>
-          <h1 className='text-3xl font-bold p-4'>ChuGu</h1>
+        <div className='flex items-center lg:ml-10 text-blue-500'>
+          <h1 className='text-3xl xl:text-4xl font-bold p-4'>ChuGu</h1>
           <button className='text-4xl'>
             <BiFootball />
           </button>
         </div>
 
         <div className='hidden lg:flex flex-1 justify-center'>
-          <ul className='flex gap-8 text-lg'>
+          <ul className='flex gap-12 xl:gap-14 text-xl xl:text-2xl'>
             {menuItems.map(menu => (
-              <li>{menu.label}</li>
+              <MenuItem
+                key={menu.path}
+                {...menu}
+                isActive={location.pathname === menu.path}
+              />
             ))}
           </ul>
         </div>
@@ -62,16 +83,17 @@ function NavBar() {
             >
               <HiX />
             </button>
-            <ul className='clear-both space-y-6 pt-8 text-lg'>
+            <ul className='clear-both space-y-6 pt-8 text-lg font-semibold'>
               {menuItems.map(menu => (
-                <li
+                <MenuItem
+                  key={menu.path}
+                  {...menu}
+                  isActive={location.pathname === menu.path}
                   onClick={() => {
                     toggleMenu();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                >
-                  {menu.label}
-                </li>
+                />
               ))}
             </ul>
             <div className='py-6 text-sm'>
