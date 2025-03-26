@@ -65,11 +65,9 @@ function NavBar() {
           </button>
         </div>
 
-        <div className='mr-4'>
-          <button onClick={toggleMenu} className='lg:hidden text-2xl'>
-            {isOpened ? <HiX /> : <HiMenu />}
-          </button>
-        </div>
+        <button onClick={toggleMenu} className='lg:hidden text-2xl mr-4'>
+          {isOpened ? <HiX /> : <HiMenu />}
+        </button>
         <div
           className={`fixed top-0 right-0 h-full w-64 bg-white text-black transform transition-transform duration-300 ease-in-out z-50 ${
             isOpened ? 'translate-x-0' : 'translate-x-full'
@@ -90,8 +88,10 @@ function NavBar() {
                   {...menu}
                   isActive={location.pathname === menu.path}
                   onClick={() => {
-                    toggleMenu();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (location.pathname !== menu.path) {
+                      toggleMenu();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                   }}
                 />
               ))}
