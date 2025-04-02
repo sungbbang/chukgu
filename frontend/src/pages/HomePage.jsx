@@ -6,7 +6,7 @@ import BoardCover from '../components/Cover/BoardCover';
 function HomePage() {
   return (
     <main className='pt-20 space-y-20'>
-      <div className='container mx-auto px-4 py-6 md:px-10 md:py-10 space-y-30'>
+      <div className='container mx-auto px-4 py-10 md:px-10 md:py-18 space-y-30'>
         <FixturesCover />
         <RecordCover />
         <BoardCover />

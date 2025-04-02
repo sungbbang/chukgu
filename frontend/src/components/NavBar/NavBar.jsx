@@ -35,7 +35,7 @@ function NavBar() {
   const toggleMenu = () => setIsOpened(prev => !prev);
 
   return (
-    <nav className='fixed top-0 left-0 w-full bg-white z-50'>
+    <nav className='fixed top-0 left-0 w-full bg-white shadow-lg z-50'>
       <div className='container mx-auto flex justify-between items-center h-20'>
         <div className='flex items-center lg:ml-10 text-blue-500'>
           <h1 className='text-3xl xl:text-4xl font-bold p-4'>ChuGu</h1>
