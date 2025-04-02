@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function FixturesCover() {
   return (
-    <div className='flex flex-col lg:flex-row justify-between items-center gap-10'>
-      <div className='flex-1 space-y-6 text-center lg:text-left'>
+    <div className='flex flex-col lg:flex-row justify-between items-center gap-16'>
+      <div className='flex-1 space-y-6 text-center lg:text-right'>
         <h1 className='text-3xl xl:text-4xl font-bold'>
           오늘은 어떤 경기가 있을까요?
         </h1>

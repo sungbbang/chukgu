@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function RecordCover() {
   return (
-    <div className='flex flex-col lg:flex-row-reverse justify-between items-center gap-10'>
+    <div className='flex flex-col lg:flex-row-reverse justify-between items-center gap-16'>
       <div className='flex-1 space-y-6 text-center lg:text-left'>
         <h1 className='text-3xl xl:text-4xl font-bold'>
           누가 가장 골을 많이 넣었나요?
