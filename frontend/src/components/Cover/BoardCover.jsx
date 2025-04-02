@@ -1,5 +1,6 @@
 import React from 'react';
 import talkingImg from '../../assets/talking.svg';
+import { Link } from 'react-router-dom';
 
 function FixturesCover() {
   return (
@@ -9,9 +10,11 @@ function FixturesCover() {
           응원하는 팀이 이겼나요?
         </h1>
         <p className=''>사람들과 이런저런 이야기를 나눌 수 있어요.</p>
-        <button className='bg-blue-400 text-xl text-white font-semibold hover:bg-blue-500 transition duration-300 rounded-lg px-4 py-2'>
-          게시판 가기
-        </button>
+        <Link to='/board'>
+          <button className='bg-blue-400 text-xl text-white font-semibold hover:bg-blue-500 transition duration-300 rounded-lg px-4 py-2'>
+            게시판 가기
+          </button>
+        </Link>
       </div>
       <div className='flex-1 w-full max-w-2xl lg:max-w-none'>
         <img

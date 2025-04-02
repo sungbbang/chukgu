@@ -1,5 +1,6 @@
 import React from 'react';
 import footballImg from '../../assets/football.svg';
+import { Link } from 'react-router-dom';
 
 function FixturesCover() {
   return (
@@ -9,9 +10,11 @@ function FixturesCover() {
           오늘은 어떤 경기가 있을까요?
         </h1>
         <p className=''>당신이 좋아하는 리그의 일정을 지금 확인해보세요.</p>
-        <button className='bg-blue-400 text-xl text-white font-semibold hover:bg-blue-500 transition duration-300 rounded-lg px-4 py-2'>
-          일정 보러가기
-        </button>
+        <Link to='/fixtures'>
+          <button className='bg-blue-400 text-xl text-white font-semibold hover:bg-blue-500 transition duration-300 rounded-lg px-4 py-2'>
+            일정 보러가기
+          </button>
+        </Link>
       </div>
       <div className='flex-1 w-full max-w-2xl lg:max-w-none'>
         <div className='relative'>
